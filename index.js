@@ -358,7 +358,7 @@ module.exports = function(sails) {
             // Bind "rest" blueprint/shadow routes based on known associations in our model's schema
             // Bind add/remove for each `collection` associations
             _.mapKeys(Model.associations, function(value, key){
-              var foreign = value.options.foreignKey;
+              var foreign = value.options;
               var alias = foreign.as || foreign.name || foreign;
               var _getAssocRoute = _.partialRight(util.format, baseRestRoute, alias);
               var opts = _.merge({ alias: alias, target: value.target.name }, routeOpts);

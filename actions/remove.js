@@ -60,6 +60,7 @@ module.exports = function remove(req, res) {
 
     if (isManyToManyThrough) {
       var throughRemove = { };
+      throughRemove[foreign] = parentPk;
       throughRemove[childAttr] = childPk;
       ThroughModel.destroy({ where: throughRemove }).then(function(){
         return returnParentModel();
