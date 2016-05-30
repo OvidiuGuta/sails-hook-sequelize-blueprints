@@ -74,7 +74,7 @@ module.exports = function (sails) {
 	function bindBlueprintAction ( path, blueprintActionID, verb, options ) {
 
 		// Look up appropriate blueprint action and make sure it exists
-		var blueprint = sails.middleware.blueprints[blueprintActionID];
+		var blueprint = sails.middleware['sequelize-blueprints'][blueprintActionID];
 
 		// If a 'blueprint' was specified, but it doesn't exist, warn the user and ignore it.
 		if ( ! ( blueprint && _.isFunction(blueprint) )) {
